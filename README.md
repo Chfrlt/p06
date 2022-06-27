@@ -3,7 +3,7 @@
 ***
 This project is part of the python developer course on [Openclassrooms](http:/openclassrooms.com).
 
-The goal is to create a REST API application allowing the view and classification of a list of movie drawn from a local API.
+The goal is to create an application allowing the view and classification of a list of movie drawn from a local API.
 
 ***
 
