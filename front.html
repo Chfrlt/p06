@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+    <title>JustStreamIt</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device_width, initial_scale=1.0">
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png">
+        <nav>
+            <a href="front.html">Home</a>
+            <a href="#first-category-title">Categories</a>
+        </nav>
+    </header>
+
+    <!-- best rated individual movie -->
+    <section class="highlighted-movie">
+        <div class="highlighted-movie-container">
+            <div class="highlighted-movie-img">
+                <img id="best-img" src="#">
+            </div>
+            <div id="highlighted-movie-header">
+                <h1 id="best-title">#</h1>
+                <p id="best-long_description" class="best-long_description"></p>
+                <button id="info-btn">Infos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- best rated movies -->
+    <section class="best-rating">
+        <div class="category-title">
+            <h1>Best Rated Movies</h1>
+        </div>
+        <div class="container" id="best-rating-container">
+            <div class="slider-btn-container">
+                <button id="best-rating-btn-prev" class="slider-btn btn-prev">
+                    &#60;
+                </button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel movies-grid--max-4" id="best-rating-carousel">
+                </div>
+            </div>
+            <div class="slider-btn-container">
+                <button id="best-rating-btn-next" class="slider-btn">
+                    &#62;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- category 1 -->
+    <section class="first-category">
+        <div class="category-title">
+            <h1 id="first-category-title"></h1>
+        </div>
+        <div class="container" id="first-category-container">
+            <div class="slider-btn-container">
+                <button id="first-category-btn-prev" class="slider-btn btn-prev">
+                    &#60;
+                </button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel movies-grid--max-4" id="first-category-carousel">
+                </div>
+            </div>
+            <div class="slider-btn-container">
+                <button id="first-category-btn-next" class="slider-btn">
+                    &#62;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- category 2 -->
+    <section class="second-category">
+        <div class="category-title">
+            <h1 id="second-category-title"></h1>
+        </div>
+        <div class="container" id="second-category-container">
+            <div class="slider-btn-container">
+                <button id="second-category-btn-prev" class="slider-btn btn-prev">
+                    &#60;
+                </button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel movies-grid--max-4" id="second-category-carousel">
+                </div>
+            </div>
+            <div class="slider-btn-container">
+                <button id="second-category-btn-next" class="slider-btn">
+                    &#62;
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- category 3 -->
+    <section class="third-category">
+        <div class="category-title">
+            <h1 id="third-category-title"></h1>
+        </div>
+        <div class="container" id="third-category-container">
+            <div class="slider-btn-container">
+                <button id="third-category-btn-prev" class="slider-btn btn-prev">
+                    &#60;
+                </button>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel movies-grid--max-4" id="third-category-carousel">
+                </div>
+            </div>
+            <div class="slider-btn-container">
+                <button id="third-category-btn-next" class="slider-btn">
+                    &#62;
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- modal -->
+    <div class="modal" id="modal-container">
+        <div class="modal-content">
+            <span class="modal-close-btn">&#10006;</span>
+            <div class="modal-text-container">
+                <div class="modal-img-container">
+                    <img id="modal-img" src="#" alt="" />
+                </div>
+                <div class="modal-infos-container">
+                    <h1 id="modal-title">#</h1>
+                    <div id="modal-genres"></div>
+                    <div id="modal-date_published"></div>
+                    <div id="modal-rated"></div>
+                    <div id="modal-imdb_score"></div>
+                    <div id="modal-directors"></div>
+                    <div id="modal-actors"></div>
+                    <div id="modal-duration"></div>
+                    <div id="modal-countries"></div>
+                    <div id="modal-long_description"></div>
+                    <div id="modal-reviews_from_critics"></div>
+                    <div id="modal-worldwide_gross_income"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
