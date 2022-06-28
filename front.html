@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
     <title>JustStreamIt</title>
     <link rel="stylesheet" href="style.css">
@@ -9,7 +9,7 @@
 <body>
     <!-- header -->
     <header>
-        <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png">
+        <img src="https://user.oc-static.com/upload/2020/09/18/16004298163529_P5.png" alt="">
         <nav>
             <a href="front.html">Home</a>
             <a href="#first-category-title">Categories</a>
@@ -17,23 +17,23 @@
     </header>
 
     <!-- best rated individual movie -->
-    <section class="highlighted-movie">
+    <div class="highlighted-movie section">
         <div class="highlighted-movie-container">
             <div class="highlighted-movie-img">
-                <img id="best-img" src="#">
+                <img id="best-img" src="#" alt="">
             </div>
             <div id="highlighted-movie-header">
-                <h1 id="best-title">#</h1>
+                <p class="category-header" id="best-title">#</p>
                 <p id="best-long_description" class="best-long_description"></p>
                 <button class="info-btn" id="info-btn">Infos</button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- best rated movies -->
-    <section class="best-rating">
+    <div class="best-rating section">
         <div class="category-title">
-            <h1>Best Rated Movies</h1>
+            <p class="category-header">Best Rated Movies</p>
         </div>
         <div class="container" id="best-rating-container">
             <div class="slider-btn-container">
@@ -51,12 +51,12 @@
                 </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- category 1 -->
-    <section class="first-category">
+    <div class="first-category section">
         <div class="category-title">
-            <h1 id="first-category-title"></h1>
+            <p class="category-header" id="first-category-title"></p>
         </div>
         <div class="container" id="first-category-container">
             <div class="slider-btn-container">
@@ -74,12 +74,12 @@
                 </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- category 2 -->
-    <section class="second-category">
+    <div class="second-category section">
         <div class="category-title">
-            <h1 id="second-category-title"></h1>
+            <p class="category-header" id="second-category-title"></p>
         </div>
         <div class="container" id="second-category-container">
             <div class="slider-btn-container">
@@ -97,11 +97,12 @@
                 </button>
             </div>
         </div>
-    </section>
+    </div>
+
     <!-- category 3 -->
-    <section class="third-category">
+    <div class="third-category section">
         <div class="category-title">
-            <h1 id="third-category-title"></h1>
+            <p class="category-header" id="third-category-title"></p>
         </div>
         <div class="container" id="third-category-container">
             <div class="slider-btn-container">
@@ -119,7 +120,7 @@
                 </button>
             </div>
         </div>
-    </section>
+    </div>
 
     <!-- modal -->
     <div class="modal" id="modal-container">
@@ -130,7 +131,7 @@
                     <img id="modal-img" src="#" alt="" />
                 </div>
                 <div class="modal-infos-container">
-                    <h1 id="modal-title">#</h1>
+                    <p class="category-header" id="modal-title">#</p>
                     <div id="modal-genres"></div>
                     <div id="modal-date_published"></div>
                     <div id="modal-rated"></div>

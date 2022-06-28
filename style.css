@@ -4,9 +4,14 @@ body{
     line-height: 1;
     font-family: "courier", sans-serif;
 }
-section {
+.section {
     margin: auto;
 }
+.category-header {
+    font-size: x-large;
+    font-weight: bold;
+}
+
 /* header */
 header{
     display: flex;
