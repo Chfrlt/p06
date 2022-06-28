@@ -33,22 +33,22 @@ carousel = function(id) {
     };
 
 // modal for the highlighted movie
-function displayModalBest() {
+function modalBest() {
     const bestMovieInfoButton = document.getElementById("info-btn");
     bestMovieInfoButton.onclick = function () {
         let modal = modalDisplay();
         modal.style.display = "block";
-        getMovieInfos(this.id, false);
+        getMovieInfos(this.id);
     };
 }
 
 // modals for carousel items
-function displayModalCarousel() {
+function modalCarousel() {
     for (let i = 0; i < document.getElementsByClassName("carousel-img").length; i++) {
         document.getElementsByClassName("carousel-img")[i].onclick = function () {
             let modal = modalDisplay();
             modal.style.display = "block";
-            getMovieInfos(document.getElementsByClassName("carousel-img")[i].id, false);
+            getMovieInfos(document.getElementsByClassName("carousel-img")[i].id);
         };
     }
 }
@@ -65,18 +65,23 @@ function modalDisplay() {
 }
 
 // get movies datas
-function getMovieInfos(id, bestMovie=false) {
-    bestMovie === false ? elementPrefix = 'modal-' : elementPrefix = 'best-';
+function getHighlightedMovieInfos(id) {
     fetch(api_url + id)
         .then(response => response.json())
         .then(json => {
-            document.getElementById(elementPrefix + "img").setAttribute("src", json.image_url);
-            if (elementPrefix == "best-") {
-                document.getElementById("info-btn").id = json.id;
-                document.getElementById(elementPrefix + 'long_description').innerHTML = json['long_description'];
-                document.getElementById(elementPrefix + 'title').innerHTML = json['title']
-            }
-            else {
+            document.getElementById("best-img").setAttribute("src", json.image_url);
+            document.getElementById("info-btn").id = json.id;
+            document.getElementById("best-long_description").innerHTML = json['long_description'];
+            document.getElementById("best-title").innerHTML = json['title']
+        })
+}
+
+
+function getMovieInfos(id) {
+    fetch(api_url + id)
+        .then(response => response.json())
+        .then(json => {
+            document.getElementById("modal-img").setAttribute("src", json.image_url);
             let infos = ["title", "long_description", "genres", "date_published", "rated", "imdb_score", "directors", "actors", "duration", "countries", "reviews_from_critics", "worldwide_gross_income"];
             for (var info of infos) {
                 var text = json[info] === null ? 'Unknown' : json[info]
@@ -86,8 +91,8 @@ function getMovieInfos(id, bestMovie=false) {
                 else {
                 var textInfo = info === 'long_description' ? '<b>description:</b>' : '<b>' + info.replaceAll('_', ' ') + ':</b>'
             }
-            document.getElementById(elementPrefix + info).innerHTML = textInfo + text;}
-            }})
+            document.getElementById("modal-" + info).innerHTML = textInfo + text;}
+            })
 }
 
 // create carousel imgs
@@ -126,9 +131,9 @@ function getMovies(url, category, nbrofmovies = 0, movies = []) {
             if (movies.length > 0) {
                 createImgsElements(movies, category)
                 if (category == "best-rating") {
-                    getMovieInfos(movies[0][0], true);
+                    getHighlightedMovieInfos(movies[0][0]);
                 }
-                displayModalCarousel();
+                modalCarousel();
             }})
         }
 
@@ -143,7 +148,7 @@ function main() {
     for (var category in categories) {
         if (category == 'best-rating') {
             getMovies(api_url + "?sort_by=-imdb_score", category);
-            displayModalBest();
+            modalBest();
         }
         else {
             fillTitle(category, categories[category])
