@@ -82,7 +82,10 @@ function getMovieInfos(id) {
         .then(response => response.json())
         .then(json => {
             document.getElementById("modal-img").setAttribute("src", json.image_url);
-            let infos = ["title", "long_description", "genres", "date_published", "rated", "imdb_score", "directors", "actors", "duration", "countries", "reviews_from_critics", "worldwide_gross_income"];
+            let infos = ["title", "long_description", "genres",
+                         "date_published", "rated", "imdb_score",
+                         "directors", "actors", "duration",
+                         "countries", "reviews_from_critics", "worldwide_gross_income"];
             for (var info of infos) {
                 var text = json[info] === null ? 'Unknown' : json[info]
                 if (info == 'title') {
@@ -97,7 +100,7 @@ function getMovieInfos(id) {
 
 // create carousel imgs
 function createImgsElements(movies, category) {
-    for (movie of movies.slice(0, moviesPerCategory)) {
+    for (movie of movies) {
         const div = document.createElement("div");
         div.classList.add('item-container');
         const img = document.createElement("img");
@@ -121,7 +124,7 @@ function getMovies(url, category, nbrofmovies = 0, movies = []) {
             for (item of json.results) {
                 movies.push([item.id, item.image_url])
             }
-            if (nbrofmovies < moviesPerCategory) {
+            if (nbrofmovies + movies.length < moviesPerCategory) {
                 getMovies(json.next, category, nbrofmovies + movies.length, movies=movies)
                 return []
             }
@@ -132,6 +135,7 @@ function getMovies(url, category, nbrofmovies = 0, movies = []) {
                 createImgsElements(movies, category)
                 if (category == "best-rating") {
                     getHighlightedMovieInfos(movies[0][0]);
+                    modalBest();
                 }
                 modalCarousel();
             }})
@@ -148,7 +152,6 @@ function main() {
     for (var category in categories) {
         if (category == 'best-rating') {
             getMovies(api_url + "?sort_by=-imdb_score", category);
-            modalBest();
         }
         else {
             fillTitle(category, categories[category])
